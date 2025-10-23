@@ -3,6 +3,10 @@
     font-size: 12px;
 }
 
+body{
+    margin: 40px auto;
+}
+
 #gridContainer{
     display: flex;
     flex-direction: row;
@@ -21,7 +25,7 @@
 }
 
 .buttonWrapper{
-    margin: 12px auto;
+    margin: 40px auto;
     display: flex;
     justify-content: center;
 }
@@ -32,10 +36,13 @@ button{
     font-size: 16px;
     border-radius: 20px;
     border: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
-.clicked{
-    cursor: no-drop;
+button:hover{
+    background:rgb(44, 43, 43);
 }
 
 .gridBox:hover{
@@ -44,4 +51,8 @@ button{
 
 .clicked{
     background-color: black;
+}
+
+.clicked-hover:hover{
+    background-color: white;
 }
