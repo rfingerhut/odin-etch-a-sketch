@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.clicked{
+    cursor: no-drop;
+}
+
 .gridBox:hover{
     background-color: black;
 }
