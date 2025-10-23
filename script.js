@@ -1,4 +1,4 @@
-const mainContainer = document.querySelector('#mainContainer');
+const gridContainer = document.querySelector('#gridContainer');
 
 for (let j = 0; j<16; j++){
     const row = document.createElement('div');
@@ -9,5 +9,5 @@ for (let j = 0; j<16; j++){
         column.textContent=`${j},${i}`;
         row.appendChild(column);
     }
-    mainContainer.appendChild(row);
+    gridContainer.appendChild(row);
 }
