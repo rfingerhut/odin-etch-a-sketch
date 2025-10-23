@@ -1,0 +1,10 @@
+#mainContainer{
+    display: flex;
+    flex-direction: row;
+    border: 3px solid red;
+}
+
+.gridBox{
+    border: 1px solid black;
+    flex: 1;
+}
