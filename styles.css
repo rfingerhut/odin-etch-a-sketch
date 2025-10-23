@@ -10,7 +10,7 @@ body{
 #gridContainer{
     display: flex;
     flex-direction: row;
-    border: 3px solid red;
+    border: 2px solid black;
     width: 800px;
     height: 800px;
     margin: 0 auto;
@@ -53,6 +53,6 @@ button:hover{
     background-color: black;
 }
 
-.clicked-hover:hover{
-    background-color: white;
+.clicked:hover{
+    border: 1px solid red;
 }
