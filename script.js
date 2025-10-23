@@ -7,6 +7,7 @@ for (let j = 0; j<16; j++){
         column.classList.add('gridBox');
         column.id = `box${j}-${i}`;
         column.textContent=`${j},${i}`;
+        column.addEventListener('click', () => column.classList.add('clicked'));
         row.appendChild(column);
     }
     gridContainer.appendChild(row);
@@ -31,8 +32,6 @@ function clearGrid(){
     gridContainer.replaceChildren();
 }
 
-
-
 function newGrid(numBoxes){
     for (let j = 0; j<numBoxes; j++){
         const row = document.createElement('div');
@@ -41,6 +40,7 @@ function newGrid(numBoxes){
             column.classList.add('gridBox');
             column.id = `box${j}-${i}`;
             column.textContent=`${j},${i}`;
+            column.addEventListener('click', () => column.classList.add('clicked'));
             row.appendChild(column);
         }
         gridContainer.appendChild(row);
