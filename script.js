@@ -6,7 +6,6 @@ for (let j = 0; j<16; j++){
         const column = document.createElement('div');
         column.classList.add('gridBox');
         column.id = `box${j}-${i}`;
-        column.textContent=`${j},${i}`;
         column.addEventListener('click', () => {
             if (column.classList.contains('clicked')){
                 column.classList.remove('clicked');
@@ -48,7 +47,6 @@ function newGrid(numBoxes){
             const column = document.createElement('div');
             column.classList.add('gridBox');
             column.id = `box${j}-${i}`;
-            column.textContent=`${j},${i}`;
             column.addEventListener('click', () => {
                 if (column.classList.contains('clicked')){
                     column.classList.remove('clicked');
