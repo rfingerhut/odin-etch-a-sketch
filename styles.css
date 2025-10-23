@@ -13,3 +13,7 @@
     width: 48.8px;
     height: 48.8px;
 }
+
+.gridBox:hover{
+    background-color: black;
+}
