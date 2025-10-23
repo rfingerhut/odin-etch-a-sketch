@@ -10,4 +10,6 @@
 .gridBox{
     border: 1px solid black;
     flex: 1;
+    width: 48.8px;
+    height: 48.8px;
 }
