@@ -17,10 +17,10 @@ body{
 }
 
 .gridBox{
-    border: 1px solid black;
+    outline: 1px solid black;
     flex: 1;
-    width: 48.8px;
-    height: 48.8px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -50,9 +50,6 @@ button:hover{
 }
 
 .clicked{
-    background-color: black;
-}
-
-.clicked:hover{
-    border: 1px solid red;
+    background-color:black;
+    outline: 1px solid black;
 }

@@ -7,10 +7,12 @@ for (let j = 0; j<16; j++){
         column.classList.add('gridBox');
         column.id = `box${j}-${i}`;
         column.addEventListener('click', () => {
-            if (column.classList.contains('clicked')){
-                column.classList.remove('clicked');
-            } else {
+            if (!column.classList.contains('clicked')){
                 column.classList.add('clicked');
+                column.setAttribute('style', `opacity: 0.1;`)
+            } else {
+                let opacity = Number(column.style.opacity)+0.2;
+                column.setAttribute('style', `opacity:${opacity};`)
             }
         });
         row.appendChild(column);
@@ -48,10 +50,12 @@ function newGrid(numBoxes){
             column.classList.add('gridBox');
             column.id = `box${j}-${i}`;
             column.addEventListener('click', () => {
-                if (column.classList.contains('clicked')){
-                    column.classList.remove('clicked');
-                } else {
+                if (!column.classList.contains('clicked')){
                     column.classList.add('clicked');
+                    column.setAttribute('style', `opacity: 0.1;`)
+                } else {
+                    let opacity = Number(column.style.opacity)+0.2;
+                    column.setAttribute('style', `opacity:${opacity};`)
                 }
             });
             row.appendChild(column);
