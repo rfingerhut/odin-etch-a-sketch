@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector('#gridContainer');
 
 const defaultBoxes = 10;
-newGrid(defaultBoxesg);
+newGrid(defaultBoxes);
 
 const createNewGridBtn = document.querySelector('#createNewGridBtn');
 createNewGridBtn.addEventListener('click', () => {
