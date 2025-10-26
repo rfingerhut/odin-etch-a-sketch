@@ -51,7 +51,7 @@ function clearGrid(){
 });
 }
 
-const clearBtn = document.querySelector('#clear');
+const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', clearGrid);
 
 function newGrid(numBoxes){
