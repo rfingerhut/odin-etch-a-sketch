@@ -3,6 +3,9 @@ const gridContainer = document.querySelector('#gridContainer');
 const defaultBoxes = 10;
 newGrid(defaultBoxes);
 
+let erase = false;
+let fill = true;
+
 const createNewGridBtn = document.querySelector('#createNewGridBtn');
 createNewGridBtn.addEventListener('click', () => {
     let numBoxes = ''
@@ -15,8 +18,20 @@ createNewGridBtn.addEventListener('click', () => {
     } while (numBoxes > 100 || isNaN(numBoxes) || numBoxes <= 0)
     clearGrid();
     newGrid(numBoxes);
-
 });
+
+const eraserBtn = document.querySelector('#eraser');
+eraserBtn.addEventListener('click', () => {
+    erase = !erase;
+    fill = false;
+})
+
+const fillBtn = document.querySelector('#fill');
+fillBtn.addEventListener('click', () => {
+    fill = !fill;
+    erase = false;
+})
+
 
 function clearGrid(){
     gridContainer.replaceChildren();
@@ -33,15 +48,17 @@ function newGrid(numBoxes){
             column.classList.add('gridBox');
             column.id = `box${j}-${i}`;
             column.addEventListener('click', () => {
-                if (!column.classList.contains('clicked')){
-                    column.classList.add('clicked');
-                    column.setAttribute('style', `opacity: 0.1;`)
+                if (fill==true && erase == false){
+                    if (!column.classList.contains('clicked')){
+                        column.classList.add('clicked');
+                        column.setAttribute('style', `opacity: 0.1;`)
+                    } else {
+                        let opacity = Number(column.style.opacity)+0.2;
+                        column.setAttribute('style', `opacity:${opacity};`);     
+                    }
                 } else {
-                    let opacity = Number(column.style.opacity)+0.2;
-                    if (opacity > 1){
+                    if (column.classList.contains('clicked')){
                         column.classList.remove('clicked');
-                    } else{
-                        column.setAttribute('style', `opacity:${opacity};`)
                     }
                 }
             });
