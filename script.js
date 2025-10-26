@@ -38,7 +38,11 @@ function newGrid(numBoxes){
                     column.setAttribute('style', `opacity: 0.1;`)
                 } else {
                     let opacity = Number(column.style.opacity)+0.2;
-                    column.setAttribute('style', `opacity:${opacity};`)
+                    if (opacity > 1){
+                        column.classList.remove('clicked');
+                    } else{
+                        column.setAttribute('style', `opacity:${opacity};`)
+                    }
                 }
             });
             row.appendChild(column);
