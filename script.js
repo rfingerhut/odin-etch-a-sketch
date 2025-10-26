@@ -24,6 +24,7 @@ createNewGridBtn.addEventListener('click', () => {
     } while (numBoxes > 100 || isNaN(numBoxes) || numBoxes <= 0)
     gridContainer.replaceChildren();
     newGrid(numBoxes);
+    toggleMode('fill');
 });
 
 const eraserBtn = document.querySelector('#eraser');
