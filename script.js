@@ -51,6 +51,7 @@ function clearGrid(){
         el.classList.remove('clicked');
         el.style.opacity=1;
 });
+    toggleMode('fill');
 }
 
 const clearBtn = document.querySelector('#clearBtn');
