@@ -82,10 +82,6 @@ button:hover{
     background:rgb(44, 43, 43);
 }
 
-.gridBox:hover{
-    background-color: black;
-}
-
 .clicked{
     background-color:black;
 }
