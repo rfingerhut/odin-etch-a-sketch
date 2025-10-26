@@ -19,7 +19,6 @@ body{
     align-items: center;
     padding: 40px 12px;
     max-width: 1200px;
-    width: 90vw;
     min-height: 100vh;
     box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 
@@ -29,8 +28,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 40px;
-    width: 40%;
 }
 
 h1{
@@ -38,7 +35,7 @@ h1{
     font-weight: 600px;
     align-self: center;
     padding: 0;
-    margin: 0;
+    margin-bottom: 40px;
 }
 
 #gridContainer{
@@ -59,31 +56,26 @@ h1{
 
 .buttonWrapper{
     display: flex;
-    justify-content: space-around;
-    gap: 50px;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
 }
 
-.fillEraserWrapper{
+#fillEraserWrapper{
     display: flex;
     gap: 0;
-    flex: 1;
 }
 
 .wrapper{
-    flex: 2;
+    display: flex;
+    justify-content: center;
 }
 
-#createNewGridBtn{
+.wrapper{
     width: 100%;
-    height: 100%;
 }
 
-#clearGridWrapper{
-    flex: 1;
-}
-
-#newGridWrapper{
-    flex: 2;
+#createNewGridBtn, #clearBtn{
+    width: 200px;
 }
 
 #fill{
@@ -109,6 +101,7 @@ h1{
 
 button{
     padding: 8px 20px;
+    height: 100%;
     font-weight: 600;
     font-size: 14px;
     border-radius: 9999px;
