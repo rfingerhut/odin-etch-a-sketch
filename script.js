@@ -24,12 +24,21 @@ const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
     erase = !erase;
     fill = false;
+    if(eraserBtn.classList.contains('toggle')){
+        eraserBtn.classList.remove('toggle')
+    }
+   fillBtn.classList.add('toggle');
+
 })
 
 const fillBtn = document.querySelector('#fill');
 fillBtn.addEventListener('click', () => {
     fill = !fill;
     erase = false;
+    if(fillBtn.classList.contains('toggle')){
+        fillBtn.classList.remove('toggle')
+    }
+    eraserBtn.classList.add('toggle');
 })
 
 
