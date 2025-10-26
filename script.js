@@ -8,6 +8,10 @@ newGrid(defaultBoxes);
 let erase = false;
 let fill = true;
 
+let isMouseDown = false;
+document.body.addEventListener('mousedown', () => isMouseDown = true);
+document.body.addEventListener('mouseup', () => isMouseDown = false);
+
 const createNewGridBtn = document.querySelector('#createNewGridBtn');
 createNewGridBtn.addEventListener('click', () => {
     let numBoxes = ''
@@ -18,30 +22,28 @@ createNewGridBtn.addEventListener('click', () => {
             msg = `Please enter a number that is less than or equal to 100!`;
         }
     } while (numBoxes > 100 || isNaN(numBoxes) || numBoxes <= 0)
-    clearGrid();
+    gridContainer.replaceChildren();
     newGrid(numBoxes);
 });
 
 const eraserBtn = document.querySelector('#eraser');
-eraserBtn.addEventListener('click', () => {
-    erase = !erase;
-    fill = false;
-    if(eraserBtn.classList.contains('toggle')){
-        eraserBtn.classList.remove('toggle')
-    }
-   fillBtn.classList.add('toggle');
-
-})
+eraserBtn.addEventListener('click', () => toggleMode('erase'));
 
 const fillBtn = document.querySelector('#fill');
-fillBtn.addEventListener('click', () => {
-    fill = !fill;
-    erase = false;
-    if(fillBtn.classList.contains('toggle')){
-        fillBtn.classList.remove('toggle')
+fillBtn.addEventListener('click', () => toggleMode('fill'));
+
+function toggleMode(mode){
+    if (mode === 'fill'){
+        fill = true;
+        erase = false;        
+    } else if (mode === 'erase'){
+        fill = false;
+        erase = true;
     }
-    eraserBtn.classList.add('toggle');
-})
+    fillBtn.classList.toggle('toggle', fill);
+    eraserBtn.classList.toggle('toggle', erase);
+    isMouseDown = false;
+}
 
 function clearGrid(){
     const boxes = document.querySelectorAll('.gridBox');
@@ -65,24 +67,31 @@ function newGrid(numBoxes){
             column.style.width=`${w}px`;
             column.style.height=`${w}px`;
             column.id = `box${j}-${i}`;
-            column.addEventListener('click', () => {
-                if (fill==true && erase == false){
-                    if (!column.classList.contains('clicked')){
-                        column.classList.add('clicked');
-                        column.style.opacity=0.1;
-                    } else {
-                        let opacity = Number(column.style.opacity)+0.2;
-                        column.style.opacity=opacity;   
-                    }
-                } else {
-                    if (column.classList.contains('clicked')){
-                        column.classList.remove('clicked');
-                        column.style.opacity=1;
-                    }
-                }
+            // column.addEventListener('click', () => drawEffect(column));
+            column.addEventListener('mousedown', () => drawEffect(column));
+            column.addEventListener('mouseenter', () => {
+                if (isMouseDown) drawEffect(column);
             });
             row.appendChild(column);
         }
         gridContainer.appendChild(row);
+    }
+}
+
+
+function drawEffect (column) {
+    if (fill==true && erase == false){
+        if (!column.classList.contains('clicked')){
+            column.classList.add('clicked');
+            column.style.opacity=0.1;
+        } else {
+            let opacity = Number(column.style.opacity)+0.2;
+            column.style.opacity=opacity;   
+        }
+    } else {
+        if (column.classList.contains('clicked')){
+            column.classList.remove('clicked');
+            column.style.opacity=1;
+        }
     }
 }
