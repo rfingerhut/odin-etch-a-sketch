@@ -68,6 +68,7 @@ function newGrid(numBoxes){
                 } else {
                     if (column.classList.contains('clicked')){
                         column.classList.remove('clicked');
+                        column.setAttribute('style', 'opacity:1;');
                     }
                 }
             });
