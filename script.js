@@ -47,7 +47,7 @@ function clearGrid(){
 }
 
 function newGrid(numBoxes){
-    let width = 50*numBoxes;
+    let width = 1000;
     let height = width;
     gridContainer.setAttribute('style', `width: ${width}px; height: ${height}px;`);
     for (let j = 0; j<numBoxes; j++){
@@ -55,6 +55,9 @@ function newGrid(numBoxes){
         for (let i = 0; i<numBoxes; i++){
             const column = document.createElement('div');
             column.classList.add('gridBox');
+            let w = width/numBoxes;
+            column.style.width=`${w}px`;
+            column.style.height=`${w}px`;
             column.id = `box${j}-${i}`;
             column.addEventListener('click', () => {
                 if (fill==true && erase == false){
