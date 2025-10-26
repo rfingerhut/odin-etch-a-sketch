@@ -1,6 +1,8 @@
 const gridContainer = document.querySelector('#gridContainer');
 
-const defaultBoxes = 10;
+const defaultBoxes = 20;
+const width = 1000;
+const height = width;
 newGrid(defaultBoxes);
 
 let erase = false;
@@ -47,8 +49,6 @@ function clearGrid(){
 }
 
 function newGrid(numBoxes){
-    let width = 1000;
-    let height = width;
     gridContainer.setAttribute('style', `width: ${width}px; height: ${height}px;`);
     for (let j = 0; j<numBoxes; j++){
         const row = document.createElement('div');
@@ -63,15 +63,15 @@ function newGrid(numBoxes){
                 if (fill==true && erase == false){
                     if (!column.classList.contains('clicked')){
                         column.classList.add('clicked');
-                        column.setAttribute('style', `opacity: 0.1;`)
+                        column.style.opacity=0.1;
                     } else {
                         let opacity = Number(column.style.opacity)+0.2;
-                        column.setAttribute('style', `opacity:${opacity};`);     
+                        column.style.opacity=opacity;   
                     }
                 } else {
                     if (column.classList.contains('clicked')){
                         column.classList.remove('clicked');
-                        column.setAttribute('style', 'opacity:1;');
+                        column.style.opacity=1;
                     }
                 }
             });
