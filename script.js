@@ -43,10 +43,16 @@ fillBtn.addEventListener('click', () => {
     eraserBtn.classList.add('toggle');
 })
 
-
 function clearGrid(){
-    gridContainer.replaceChildren();
+    const boxes = document.querySelectorAll('.gridBox');
+    boxes.forEach(el => {
+        el.classList.remove('clicked');
+        el.style.opacity=1;
+});
 }
+
+const clearBtn = document.querySelector('#clear');
+clearBtn.addEventListener('click', clearGrid);
 
 function newGrid(numBoxes){
     gridContainer.setAttribute('style', `width: ${width}px; height: ${height}px;`);

@@ -78,6 +78,14 @@ h1{
     height: 100%;
 }
 
+#clearGridWrapper{
+    flex: 1;
+}
+
+#newGridWrapper{
+    flex: 2;
+}
+
 #fill{
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
